@@ -13,7 +13,6 @@ const employeeRoute = require('./routes/employee');
 const projectRoute = require('./routes/project');
 const taskRoute = require('./routes/task');
 const timesheetRoute = require('./routes/timesheet');
-const attendanceRoute = require('./routes/attendance');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -31,7 +30,6 @@ app.use('/api', employeeRoute);
 app.use('/api', projectRoute);
 app.use('/api', taskRoute);
 app.use('/api', timesheetRoute);
-app.use('/api', attendanceRoute);
 
 // Server Listen
 app.listen(PORT, () => {

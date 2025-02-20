@@ -39,7 +39,7 @@ function ReadTaskModal({ isOpen, onClose }) {
                                 </div>
                             </div>
                         </div>
-                        <p className='created'>Created on: 19/02/2023</p>
+                        <p className='created'>Created on: 20/02/2025</p>
                     </div>
                 </ModalBody>
                 <ModalFooter>
