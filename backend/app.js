@@ -23,6 +23,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+    res.send("Backend is running!");
+});
+
 // API's
 app.use('/api', authRoute);
 app.use('/api', dashboardRoute);
