@@ -20,6 +20,7 @@ import totalpending from '../../assets/tasks/totalpending.png'
 import totalprogress from '../../assets/tasks/totalprogress.png'
 import totaltasks from '../../assets/tasks/totaltasks.png'
 import AddEmployeeModal from './modals/AddEmployee'
+require('dotenv').config();
 
 function Employees() {
   const [isAddEmployeeModalOpen, setIsAddEmployeeModalOpen] = useState(false);
@@ -38,10 +39,11 @@ function Employees() {
   const closeAddEmployeeModal = () => {
     setIsAddEmployeeModalOpen(false);
   };
+  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
   const getEmployees = async () => {
     try {
-      const response = await axios.get('api/employees')
+      const response = await axios.get(`${API_BASE_URL}/api/employees`)
       setEmployeesData(response.data)
     } catch (error) {
       console.error('Error:', error);

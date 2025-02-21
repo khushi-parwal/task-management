@@ -7,19 +7,19 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import { IoMdAdd } from "react-icons/io"
-import Navbar from '../../components/navbar/Navbar'
-import Sidenav from '../../components/sidenav/Sidenav'
-import "./timesheets.css"
-
 import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { FcStatistics } from "react-icons/fc"
+import { IoMdAdd } from "react-icons/io"
 import totalcomplete from '../../assets/tasks/totalcomplete.png'
 import totalpending from '../../assets/tasks/totalpending.png'
 import totalprogress from '../../assets/tasks/totalprogress.png'
 import totaltasks from '../../assets/tasks/totaltasks.png'
+import Navbar from '../../components/navbar/Navbar'
+import Sidenav from '../../components/sidenav/Sidenav'
 import AddTimesheetModal from './modals/AddTimesheet'
+import "./timesheets.css"
+require('dotenv').config();
 
 function Timesheets() {
   const [isAddTimesheetModalOpen, setIsAddTimesheetModalOpen] = useState(false);
@@ -38,9 +38,11 @@ function Timesheets() {
     setIsAddTimesheetModalOpen(false);
   };
 
+  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
   const getTimesheets = async () => {
     try {
-      const response = await axios.get('api/timesheets')
+      const response = await axios.get(`${API_BASE_URL}/api/timesheets`)
       setTimesheetsData(response.data)
     } catch (error) {
       console.error('Error:', error);

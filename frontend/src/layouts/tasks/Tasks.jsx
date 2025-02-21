@@ -247,6 +247,7 @@ import Sidenav from '../../components/sidenav/Sidenav';
 import AddTaskModal from './modals/AddTask';
 import ReadTaskModal from './modals/ReadTask';
 import "./tasks.css";
+require('dotenv').config();
 
 function Tasks() {
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
@@ -259,11 +260,13 @@ function Tasks() {
   const closeAddTaskModal = () => setIsAddTaskModalOpen(false);
   const closeReadTaskModal = () => setIsReadTaskModalOpen(false);
 
+  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
   useEffect(() => {
     const fetchTasks = async () => {
       const token = localStorage.getItem("tm_token");
       try {
-        const response = await axios.get('/api/tasks', {
+        const response = await axios.get(`${API_BASE_URL}/api/tasks`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setTasks(response.data);

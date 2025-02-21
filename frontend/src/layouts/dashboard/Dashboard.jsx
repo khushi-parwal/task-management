@@ -11,12 +11,15 @@ import totaltasks from '../../assets/tasks/totaltasks.png';
 import Navbar from '../../components/navbar/Navbar';
 import Sidenav from '../../components/sidenav/Sidenav';
 import "./dashboard.css";
+require('dotenv').config();
 
 function Dashboard() {
   const [dashboardData, setDashboardData] = useState([]);
 
+  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  
   const getDashboard = async () => {
-    const response = await axios.get('api/dashboard')
+    const response = await axios.get(`${API_BASE_URL}/api/dashboard`)
     setDashboardData(response.data)
   }
   useEffect(() => {

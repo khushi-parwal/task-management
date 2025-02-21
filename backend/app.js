@@ -4,8 +4,6 @@ require('dotenv').config();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-
-
 // Routes Imports
 const authRoute = require('./routes/auth');
 const dashboardRoute = require('./routes/dashboard');
