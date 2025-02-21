@@ -107,8 +107,8 @@ function AddEmployeeModal({ isOpen, onClose }) {
                         <Input mt={3} mb={3} type='text' required placeholder='Residential Address' name='residentialAddress' value={formData.residentialAddress} onChange={handleChange} />
                         <Input mt={3} mb={3} type='text' required placeholder='Aadhar ID' name='cnic' value={formData.cnic} onChange={handleChange} />
                         <Input mt={3} mb={3} type='text' required placeholder='Role' name='role' value={formData.role} onChange={handleChange} />
-                        <Input mt={3} mb={3} required placeholder="Date Of Birth" type="date" 
-                        name='dateOfBirth' value={formData.dateOfBirth} onChange={handleChange} />
+                        {/* <Input mt={3} mb={3} required placeholder="Date Of Birth" type="date" 
+                        name='dateOfBirth' value={formData.dateOfBirth} onChange={handleChange} /> */}
                         <Input mt={3} mb={3} required placeholder="Start Date" type="date" name='startDate' value={formData.startDate} onChange={handleChange} />
                         <div className='priority-container'>
                             <p>Status: </p>
