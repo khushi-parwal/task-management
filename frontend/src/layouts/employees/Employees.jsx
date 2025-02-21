@@ -23,7 +23,7 @@ function Employees() {
 
   const getEmployees = async () => {
     try {
-      const response = await axios.get('https://task-management-backend-red.vercel.app/api/employee')
+      const response = await axios.get('/api/employee')
       setEmployeesData(response.data)
     } catch (error) {
       console.error('Error:', error);

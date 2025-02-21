@@ -40,7 +40,7 @@ function Timesheets() {
 
   const getTimesheets = async () => {
     try {
-      const response = await axios.get('https://task-management-backend-red.vercel.app/api/timesheets')
+      const response = await axios.get('/api/timesheets')
       setTimesheetsData(response.data)
     } catch (error) {
       console.error('Error:', error);

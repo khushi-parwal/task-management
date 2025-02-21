@@ -16,7 +16,7 @@ function Dashboard() {
   const [dashboardData, setDashboardData] = useState([]);
 
   const getDashboard = async () => {
-    const response = await axios.get('https://task-management-backend-red.vercel.app/api/dashboard')
+    const response = await axios.get('/api/dashboard')
     setDashboardData(response.data)
   }
   useEffect(() => {

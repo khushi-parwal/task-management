@@ -25,7 +25,7 @@ function Tasks() {
     const fetchTasks = async () => {
       const token = localStorage.getItem("tm_token");
       try {
-        const response = await axios.get('https://task-management-backend-red.vercel.app/api/tasks', {
+        const response = await axios.get('/api/tasks', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setTasks(response.data);

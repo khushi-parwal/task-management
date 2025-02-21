@@ -25,7 +25,7 @@ function Projects() {
     const fetchProjects = async () => {
       const token = localStorage.getItem("tm_token"); // Assuming token is stored in localStorage
       try {
-        const response = await axios.get('https://task-management-backend-red.vercel.app/api/projects', {
+        const response = await axios.get('/api/projects', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProjects(response.data);
