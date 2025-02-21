@@ -19,7 +19,6 @@ import Navbar from '../../components/navbar/Navbar'
 import Sidenav from '../../components/sidenav/Sidenav'
 import AddTimesheetModal from './modals/AddTimesheet'
 import "./timesheets.css"
-require('dotenv').config();
 
 function Timesheets() {
   const [isAddTimesheetModalOpen, setIsAddTimesheetModalOpen] = useState(false);
@@ -38,11 +37,10 @@ function Timesheets() {
     setIsAddTimesheetModalOpen(false);
   };
 
-  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
   const getTimesheets = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/timesheets`)
+      const response = await axios.get('https://task-management-backend-red.vercel.app/api/timesheets')
       setTimesheetsData(response.data)
     } catch (error) {
       console.error('Error:', error);

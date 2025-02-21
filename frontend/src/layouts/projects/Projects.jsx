@@ -8,7 +8,6 @@ import Sidenav from '../../components/sidenav/Sidenav';
 import AddProjectModal from './modals/AddProject';
 import ReadProjectModal from './modals/ReadProject';
 import "./projects.css";
-require('dotenv').config();
 
 function Projects() {
   const [isAddProjectModalOpen, setIsAddProjectModalOpen] = useState(false);
@@ -21,13 +20,12 @@ function Projects() {
   const closeAddProjectModal = () => setIsAddProjectModalOpen(false);
   const closeReadProjectModal = () => setIsReadProjectModalOpen(false);
 
-  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
   // Fetch projects from the backend
   useEffect(() => {
     const fetchProjects = async () => {
       const token = localStorage.getItem("tm_token"); // Assuming token is stored in localStorage
       try {
-        const response = await axios.get(`${API_BASE_URL}/api/projects`, {
+        const response = await axios.get('https://task-management-backend-red.vercel.app/api/projects', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProjects(response.data);

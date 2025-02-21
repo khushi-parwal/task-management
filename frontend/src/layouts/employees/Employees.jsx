@@ -1,26 +1,7 @@
-import {
-  Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import { IoMdAdd } from "react-icons/io"
-import Navbar from '../../components/navbar/Navbar'
-import Sidenav from '../../components/sidenav/Sidenav'
-import "./employees.css"
+import { useState } from 'react';
+import "./employees.css";
 
-import axios from 'axios'
-import { FcStatistics } from "react-icons/fc"
-import totalcomplete from '../../assets/tasks/totalcomplete.png'
-import totalpending from '../../assets/tasks/totalpending.png'
-import totalprogress from '../../assets/tasks/totalprogress.png'
-import totaltasks from '../../assets/tasks/totaltasks.png'
-import AddEmployeeModal from './modals/AddEmployee'
-require('dotenv').config();
+import axios from 'axios';
 
 function Employees() {
   const [isAddEmployeeModalOpen, setIsAddEmployeeModalOpen] = useState(false);
@@ -39,11 +20,10 @@ function Employees() {
   const closeAddEmployeeModal = () => {
     setIsAddEmployeeModalOpen(false);
   };
-  const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
   const getEmployees = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/employees`)
+      const response = await axios.get('https://task-management-backend-red.vercel.app/api/employee')
       setEmployeesData(response.data)
     } catch (error) {
       console.error('Error:', error);
